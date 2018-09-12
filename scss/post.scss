@@ -8,6 +8,9 @@ body{
 }
 a{
   color:$oppia-mid;
+  &:hover{
+    color:$oppia-dark;
+  }
 }
 .btn-primary {
     background-color: $oppia-mid;
@@ -26,9 +29,9 @@ a{
     background: $oppia-light;
 }
 
-#page .btn:not(.p-a-0), #page .btn-large, #page .btn-floating, .submitbuttons .btn{
+#page .btn:not(.p-a-0):not(.btn-link), #page .btn-large, #page .btn-floating, .submitbuttons .btn{
     font-family: 'Roboto', sans-serif;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    box-shadow: $card-shadow;
     outline: 0;
     border:none;
     font-size: 14px;
@@ -45,7 +48,7 @@ a{
 }
 
 .dropdown-menu, .popover-region-container{
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0, 45, 0, 0.2);
+    box-shadow: $card-shadow;
 }
 .popover-region-messages, .popover-region-notifications{ margin-top: -0.2rem; }
 .dropdown-item{
@@ -63,7 +66,7 @@ a{
 }
 .site-name{ margin-left:0.4em; color:#fff; }
 .course_category_tree{
-  
+  margin-bottom:1.5rem;
   .category > .info > .categoryname{ padding: 8px 18px; }
 } 
 h3.categoryname, h4.categoryname{ 
@@ -104,7 +107,7 @@ button[data-action="toggle-drawer"]:hover{
 }
 nav.navbar{
     background-color: $oppia-mid !important;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+    box-shadow: $card-shadow;
     border-bottom: none;
     a.dropdown-toggle{ color:#fff; }
     .nav-link > .icon{ 
@@ -190,6 +193,10 @@ nav.navbar{
     border:none;
     border-radius: 2px;
     box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+    .card-title{
+      font-weight: 600;
+      font-size: 1rem;
+    }
 }
 .navbar-light .navbar-brand.has-logo{ 
     padding-top: 0; 
@@ -199,44 +206,56 @@ nav.navbar{
         color: $oppia-lighter;
     }
 }
-.navbar-light .navbar-nav .nav-link{
+
+.navbar-light .navbar-nav{
+  .nav-link{
     padding-top: .6rem;
-}
-.navbar-light .navbar-nav .nav-link:focus, 
-.navbar-light .navbar-nav .nav-link:hover, 
-.navbar-light .navbar-nav .open > .nav-link,
-.navbar-light .navbar-nav .open > .nav-link:hover{
+    font-size: 0.775rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .nav-link:hover, 
+  .open > .nav-link,
+  .open > .nav-link:hover{
     color: #fff !important;
+  }
 }
+
 
 .breadcrumb-item {
     float: left;
 }
 .breadcrumb-item + .breadcrumb-item::before {
     content: "";
-    display: none;
+    padding-right: 0;
+    padding-left:0;
 }
 .breadcrumb{
   display: inline-block;
   padding: 0;
   li{
     margin-bottom: 3px;
-    a{
-      display: inline-block;
-      background: $breadcrumb;
-      text-decoration: none;
-      position:relative;
-      height: 24px;
-      line-height:24px;
-      padding: 0 10px 0 5px;
-      text-align: center;
-      margin-right: 11px;
-      font-size: 13px;
-      color:#555;
-      transition: .3s ease-out;
+    display: inline-block;
+    background: $breadcrumb;
+    text-decoration: none;
+    position:relative;
+    height: 24px;
+    line-height:24px;
+    padding: 0 10px 0 5px;
+    text-align: center;
+    margin-right: 11px;
+    font-size: 13px;
+    color:#555;
+    transition: .3s ease-out;
+
+    a, a:hover{
+      color:inherit;
+      text-decoration:none;
+      z-indez:30;
     }
+
     &:nth-child(even){
-      a{
+
         background-color: $breadcrumb-even;
         
         &:before{
@@ -246,30 +265,29 @@ nav.navbar{
         &:after{
           border-left-color:$breadcrumb-even;
         }
-      }
+
     }
     &:first-child{
-      a{
+
         padding-left:15px;
         border-top-left-radius: 3px;
         border-bottom-left-radius: 3px;
         &:before{
           border:none;
          }
-      }
+
     }
     &:last-child{
-      a{
+
         padding-right:15px;
         border-top-right-radius: 3px;
         border-bottom-right-radius: 3px;
         &:after{
           border:none;
          }
-      }
+
     }
-    
-    a{   
+  
       &:before,
       &:after{
         content: "";
@@ -302,6 +320,44 @@ nav.navbar{
           border-left-color:$breadcrumb-hover;
         }
       }
+
+  }
+}
+
+.pagination-sm .page-link {
+    color:#444;
+    &:hover{
+      color:#333;
+      background-color:$oppia-lighter;
     }
+}
+.page-item.active .page-link{
+  background-color: $oppia-mid;
+    border-color: $oppia-mid;
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: $oppia-mid;
+    outline: 0;
+    -webkit-box-shadow: 0 0 0 0.2rem $oppia-shadow;
+    box-shadow: 0 0 0 0.2rem $oppia-shadow;
+}
+
+.nav-tabs .nav-link {
+    padding: .5em 0.85em;
+    border: 1px solid transparent;
+    border-top-right-radius: .25rem;
+    border-top-left-radius: .25rem;
+
+    &.active{
+          background-color: #f9f9f9;
+    }
+}
+.nav-pills{
+  box-shadow: $card-shadow;
+  .nav-link.active, .show>.nav-link{
+    background-color:$oppia-mid;
   }
 }
