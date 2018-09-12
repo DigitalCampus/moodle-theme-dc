@@ -19,7 +19,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 // This is the version of the plugin.
-$plugin->version = 2017023292;
+$plugin->version = 2018091100;
 
 // This is the version of Moodle this plugin requires.
 $plugin->requires = 2016112900.00;
@@ -30,12 +30,12 @@ $plugin->component = 'theme_oppia';
 
 // This is a list of plugins, this plugin depends on (and their versions).
 $plugin->dependencies = [
-    'theme_boost' => 2016102100
+    'theme_boost' => 2018051400
 ];
 
 // This is a stable release.
 $plugin->maturity = MATURITY_STABLE;
 
 // This is the named version.
-$plugin->release = 1.3;
+$plugin->release = 1.4;
 

@@ -1,7 +1,21 @@
 // Post SCSS for the theme.
-
+@font-face {
+    font-family: Montserrat;
+    src: url([[font:theme|good_dog.woff]]);
+}
 body{
     background-color: #f7f7f7;
+}
+a{
+  color:$oppia-mid;
+}
+.btn-primary {
+    background-color: $oppia-mid;
+    border-color: $oppia-mid;
+}
+.btn-secondary, .btn-default {
+    color: #373a3c;
+    background-color: #fff;
 }
 .btn, .btn-large, .btn-floating{
     letter-spacing: .5px;
@@ -47,8 +61,11 @@ body{
     #page-header .card-block { padding-top: 0.8rem;  }
     &.notloggedin #page-header .card-block{ display: none; }
 }
-.site-name{ margin-left:0.4em; }
-.course_category_tree .category > .info > .categoryname{ padding: 8px 18px; }
+.site-name{ margin-left:0.4em; color:#fff; }
+.course_category_tree{
+  
+  .category > .info > .categoryname{ padding: 8px 18px; }
+} 
 h3.categoryname, h4.categoryname{ 
     border-bottom: 1px solid #efefef;
     transition: 700ms all;
@@ -77,12 +94,16 @@ button[data-action="toggle-drawer"]{
     font-size: 1.2em;
     color: #fff;
     margin-right: 0 !important;
+
+    .icon{
+      background:transparent !important;
+    }
 }
 button[data-action="toggle-drawer"]:hover{
     background: $oppia-light;
 }
-header.navbar{
-    background-color: $oppia-mid;
+nav.navbar{
+    background-color: $oppia-mid !important;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
     border-bottom: none;
     a.dropdown-toggle{ color:#fff; }
@@ -121,21 +142,47 @@ header.navbar{
     &:hover{ color: $oppia-mid; }
     &:first-child, &:last-child { border-radius: 0;  }
     & :last-child .m-l-0 { border-bottom-color: #fff; }
+
+    &.active{
+      background-color: $oppia-light;
+      border-color: $oppia-light;
+    }
 }
 .m-l-0{
     padding: 0.95rem 0;
     border-bottom: 1px solid #ddd;
 }
-.usermenu .login a{ color: #fff; }
-h3.coursename{ font-size: 1.2rem; }
+.usermenu{
+  margin-left:0.5rem;
+  .login a{ color: #fff; }
+  .userpicture {
+    margin-left: 1rem;
+    margin-right:0;
+  }
+}
+.coursebox{
+  h3.coursename{ 
+    font-size: 1.05rem; 
+    font-weight:500;
+  }
+  .content .summary {
+    float:none;
+    width:auto;
+    img{
+      float:left;
+      margin-top:0.2rem;
+      margin-right:1rem;
+    }
+  }
+} 
+
 #page-header{
     .card{
         background: none;
         border:none;
     }
-    .card-block{
-        padding: 0;
-        padding-top:1.7rem;
+    .card-body{
+        padding: 1.55rem 0 0 0.5rem;
     }
     .dropdown-toggle > .icon{ height: 32px; }
 }
@@ -162,6 +209,9 @@ h3.coursename{ font-size: 1.2rem; }
     color: #fff !important;
 }
 
+.breadcrumb-item {
+    float: left;
+}
 .breadcrumb-item + .breadcrumb-item::before {
     content: "";
     display: none;
